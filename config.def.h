@@ -1,11 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
-#define GAPS_START 26
+#define GAPS_START 10
 
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int gappx     = GAPS_START;
 static const unsigned int snap      = 0;        /* snap pixel */
-static const int showbar            = 0;        /* 0 means no bar */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = GAPS_START - GAPS_START / 3; /* vertical padding of bar */
 static const int sidepad            = GAPS_START - GAPS_START / 3; /* horizontal padding of bar */
@@ -95,6 +96,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
